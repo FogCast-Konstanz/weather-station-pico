@@ -1,4 +1,4 @@
-# Kurze Beschreibung nach dem Drucken
+# Kurze Beschreibung nach dem Drucken der (stl) Teile
 
 1. Die Verkabelung mit dem Sensor durch den Flansch und der Abdeckung durchführen.
 2. Den Flansch mit der oberen Abdeckung (Dach) mit dem konstruierten Verschluss zusammen verbinden.
