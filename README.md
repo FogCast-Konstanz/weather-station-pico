@@ -13,9 +13,10 @@ Dieses Repository enthält den MicroPython-Code für eine autarke, modulare Wett
 ## 🚀 Installation & Setup
 
 1. **MicroPython flashen:** Stelle sicher, dass auf dem Pico 2 die aktuelle MicroPython-Firmware installiert ist.
-2. **Dateien übertragen:** Öffne Thonny und kopiere alle Dateien und Ordner (außer `.git` und `docs/`) auf das Hauptverzeichnis (`/`) des Pico 2.
+2. **Dateien übertragen:** Öffne Thonny (oder ähnliches) und kopiere alle Dateien und Ordner (außer `.git` und `docs/`) auf das Hauptverzeichnis (`/`) des Pico 2.
 3. **SoftI²C-Pins ermitteln:** Da die zweite Signalader bei den Grove-Ports `A2` (IMU) und `D20` (UV) je nach Shield variieren kann, führe einmalig das Diagnose-Skript aus:
    ```python
    import tools.i2c_pin_scan
    tools.i2c_pin_scan.find_sensor("A2", expected_address=0x68)
    tools.i2c_pin_scan.find_sensor("D20", expected_address=0x74)
+4.**Messwerte überprüfen:** Wenn die Skripte auf den Pico hochgeladen sind, können die ersten Messwerte auf der Konsole von dem PC ausgegeben werden. Hierbei können die Messwerte auf realitätsnahe Werte überprüft werden.
