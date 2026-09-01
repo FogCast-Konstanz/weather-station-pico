@@ -19,4 +19,4 @@ Dieses Repository enthält den MicroPython-Code für eine autarke, modulare Wett
    import tools.i2c_pin_scan
    tools.i2c_pin_scan.find_sensor("A2", expected_address=0x68)
    tools.i2c_pin_scan.find_sensor("D20", expected_address=0x74)
-4.**Messwerte überprüfen:** Wenn die Skripte auf den Pico hochgeladen sind, können die ersten Messwerte auf der Konsole von dem PC ausgegeben werden. Hierbei können die Messwerte auf realitätsnahe Werte überprüft werden.
+4. **Messwerte überprüfen:** Wenn die Skripte auf den Pico hochgeladen sind, können die ersten Messwerte auf der Konsole von dem PC ausgegeben werden. Hierbei können die Messwerte auf realitätsnahe Werte überprüft werden.
