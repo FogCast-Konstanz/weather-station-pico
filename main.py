@@ -1,14 +1,14 @@
 """
-Wetterstation - Hauptprogramm fuer Raspberry Pi Pico 2 + Grove Shield for Pi Pico.
+Wetterstation -> Hauptprogramm fuer Raspberry Pi Pico 2 + Grove Shield for Pi Pico.
 
-TATSAECHLICHE PHYSISCHE VERKABELUNG (Stand: von euch bestaetigt):
+TATSAECHLICHE PHYSISCHE VERKABELUNG (Stand: 22.08.2026):
 
-  Sensor              Grove-Port   Pico-GPIO (SDA/SCL)        Bus-Typ
-  ------------------  -----------  --------------------------  -------------------
-  SHT30 (intern)      I2C0         GP8  / GP9                  Hardware I2C(0)
-  QMP6988             I2C0         GP8  / GP9  (SELBER Bus!)   Hardware I2C(0)
-  SHT30 (extern)      I2C1         GP6  / GP7                  Hardware I2C(1)
-  MPU6886 (IMU)       A2           GP28 / <config.MPU6886_SCL_PIN>   SoftI2C
+  Sensor              Grove-Port   Pico-GPIO (SDA/SCL)              Bus-Typ
+  ------------------  -----------  --------------------------       -------------------
+  SHT30 (intern)      I2C0         GP8  / GP9                       Hardware I2C(0)
+  QMP6988             I2C0         GP8  / GP9                       Hardware I2C(0)
+  SHT30 (extern)      I2C1         GP6  / GP7                       Hardware I2C(1)
+  MPU6886 (IMU)       A2           GP28 / <config.MPU6886_SCL_PIN>  SoftI2C
   AS7331 (UV)         D20          GP20 / <config.AS7331_SCL_PIN>   SoftI2C
 
 Wichtig: QMP6988 sitzt auf demselben Breakout-Board wie der interne SHT30
@@ -35,7 +35,7 @@ from drivers.mpu6886 import MPU6886
 from drivers.as7331 import AS7331
 from drivers import solar_position
 
-# ---- Pin-Vollstaendigkeit pruefen, bevor irgendwas initialisiert wird -----
+# Pin-Vollstaendigkeit pruefen, bevor irgendwas initialisiert wird
 if config.MPU6886_SCL_PIN is None or config.AS7331_SCL_PIN is None:
     raise RuntimeError(
         "config.MPU6886_SCL_PIN und/oder config.AS7331_SCL_PIN sind noch nicht "
@@ -46,7 +46,7 @@ if config.MPU6886_SCL_PIN is None or config.AS7331_SCL_PIN is None:
         "und die gefundenen SCL-Pins in config.py eintragen."
     )
 
-# ---- Vier getrennte I2C-Busse ----------------------------------------------
+# Vier getrennte I2C-Busse 
 i2c_bus1_intern = I2C(0, scl=Pin(9), sda=Pin(8), freq=400_000)   # I2C0: SHT30-intern + QMP6988
 i2c_bus2_extern = I2C(1, scl=Pin(7), sda=Pin(6), freq=100_000)   # I2C1: SHT30-extern
 i2c_mpu6886 = SoftI2C(
