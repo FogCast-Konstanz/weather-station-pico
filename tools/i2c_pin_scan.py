@@ -6,14 +6,14 @@ WARUM DIESES SKRIPT NOETIG IST:
 Fuer I2C0/I2C1 sind SDA/SCL eindeutig dokumentiert (GP8/GP9 bzw. GP6/GP7).
 Fuer die "zweckentfremdeten" Analog-/Digital-Ports (A0-A2, D16/D18/D20) ist
 in der oeffentlichen Seeed-Doku nur die jeweils EINE "Haupt-GPIO" (z.B. D20
--> GP20) sicher belegt - welche GPIO auf der zweiten Signalader des
+-> GP20) sicher belegt, welche GPIO auf der zweiten Signalader des
 Grove-Steckers liegt, ist nicht zuverlaessig dokumentiert und kann je nach
 Shield-Revision leicht variieren. Am zuverlaessigsten ist der Aufdruck direkt
 auf eurem Shield (Silkscreen neben dem jeweiligen Grove-Stecker) - falls
 lesbar, dort zuerst nachsehen. Dieses Skript ist der Plan B: einfach alle
 sinnvollen GPIO-Nachbarn ausprobieren und schauen, wo der Sensor antwortet.
 
-VERWENDUNG (direkt ueber die Thonny-REPL auf dem Pico ausfuehren):
+VERWENDUNG (direkt ueber die Thonny-REPL (o.Ä.) auf dem Pico ausfuehren):
     >>> import i2c_pin_scan
     >>> i2c_pin_scan.find_sensor("D20", expected_address=0x74)
 """
