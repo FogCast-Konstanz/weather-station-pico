@@ -28,19 +28,20 @@ STATION_LAT_DEG = 47.69
 STATION_LON_DEG = 8.75
 MIN_SUN_ELEVATION_DEG = 5.0
 
+"""
+Tatsaechliche physische Verkabelung:
 
-# Tatsaechliche physische Verkabelung:
-#
-# QMP6988 sitzt auf demselben Breakout-Board wie der interne SHT30 (gleicher
-# Grove-I2C0-Stecker, "QMP6988" ist nur der Aufdruck auf dem Chip) -> beide
-# teilen sich Bus 1 (I2C0), es sind KEINE eigene Verkabelung/kein eigener
-# Bus fuer den QMP6988 noetig.
-#
-# MPU6886 (Port A2) und AS7331 (Port D20) haengen an je einem einzelnen
-# Grove-Anschluss. Die "Haupt-GPIO" jedes Ports ist dokumentiert, die zweite
-# Signalader (SDA oder SCL, je nachdem) ist auf dem Shield nicht zuverlaessig
-# dokumentiert. Bitte mit tools/i2c_pin_scan.py ermitteln (siehe README/Chat)
-# und hier eintragen, BEVOR main.py laeuft:
+QMP6988 sitzt auf demselben Breakout-Board wie der interne SHT30 (gleicher
+Grove-I2C0-Stecker, "QMP6988" ist nur der Aufdruck auf dem Chip) -> beide
+teilen sich Bus 1 (I2C0), es sind KEINE eigene Verkabelung/kein eigener
+Bus fuer den QMP6988 noetig.
+
+MPU6886 (Port A2) und AS7331 (Port D20) haengen an je einem einzelnen
+Grove-Anschluss. Die "Haupt-GPIO" jedes Ports ist dokumentiert, die zweite
+Signalader (SDA oder SCL, je nachdem) ist auf dem Shield nicht zuverlaessig
+dokumentiert. Bitte mit tools/i2c_pin_scan.py ermitteln (siehe README/Chat)
+und hier eintragen, BEVOR main.py laeuft:
+"""
 
 MPU6886_SDA_PIN = 28   # A2-Hauptpin, dokumentiert
 MPU6886_SCL_PIN = None  # TODO: per i2c_pin_scan.find_sensor("A2", 0x68) ermitteln
