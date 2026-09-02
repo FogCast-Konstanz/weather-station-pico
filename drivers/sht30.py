@@ -1,13 +1,13 @@
 """
 SHT30 Treiber (Sensirion) fuer MicroPython auf dem Raspberry Pi Pico 2.
-Wird sowohl fuer den internen als auch den externen SHT30 verwendet -
+Wird sowohl fuer den internen als auch den externen SHT30 verwendet,
 einfach mit unterschiedlichem I2C-Bus instanziieren.
 
 Default I2C-Adresse: 0x44 (ADDR-Pin auf GND)
 Alternative Adresse: 0x45 (ADDR-Pin auf VDD)
 
 Funktioniert unveraendert mit machine.I2C (Hardware) UND machine.SoftI2C
-(Software/Bit-Banging) - beide bieten dieselbe API (writeto/readfrom).
+(Software/Bit-Banging), beide bieten dieselbe API (writeto/readfrom).
 """
 import time
 from machine import I2C
