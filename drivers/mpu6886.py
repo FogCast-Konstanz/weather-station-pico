@@ -3,7 +3,7 @@ MPU6886 6-Achsen IMU (Accel + Gyro) fuer MicroPython.
 Default I2C-Adresse: 0x68 (AD0=GND) bzw. 0x69 (AD0=VDD)
 
 Funktioniert unveraendert mit machine.I2C (Hardware) UND machine.SoftI2C
-(Software/Bit-Banging) - beide bieten dieselbe API (readfrom_mem/writeto_mem).
+(Software/Bit-Banging), beide bieten dieselbe API (readfrom_mem/writeto_mem).
 """
 import time
 from machine import I2C
