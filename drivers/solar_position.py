@@ -5,19 +5,17 @@ um den Kosinus-Fehler zu korrigieren, der entsteht, weil der Sensor nicht
 senkrecht zur Sonne steht (Sommer/Winter-Unterschied durch flacheren bzw.
 steileren Sonnenstand).
 
-WICHTIG - was das hier NICHT leistet:
+WICHTIG: was das hier NICHT leistet:
 - Keine Wetter-/Wolken-/Aerosolkorrektur, nur die reine Geometrie.
 - Die reale Winkelantwort eines Sensors ist selten ein perfektes Kosinus,
-  besonders am Rand (>70 deg Zenitwinkel). Fuer echte Messgenauigkeit
-  braeuchtet ihr die tatsaechliche Winkel-Kennlinie aus dem AS7331-Datenblatt
-  oder eine eigene Kalibrierung (Sensor auf Drehteller, Referenzlampe).
-- Braucht eine halbwegs genaue Uhrzeit (UTC) und eure Standortkoordinaten.
-  Der Pico 2 hat keine Echtzeituhr - entweder ueber NTP synchronisieren
+  besonders am Rand (>70 deg Zenitwinkel).
+- Braucht eine halbwegs genaue Uhrzeit (UTC) und die Standortkoordinaten.
+  Der Pico 2 hat keine Echtzeituhr, entweder ueber NTP synchronisieren
   (nur mit Pico 2 W / WLAN) oder ein externes RTC-Modul (z.B. DS3231) an
   I2C1 mitbetreiben.
 
 Formeln nach dem vereinfachten NOAA-Sonnenstandsalgorithmus (Standard-
-Nherungsformeln, keine Bibliothekscode-Uebernahme).
+Naeherungsformeln, keine Bibliothekscode-Uebernahme).
 """
 import math
 
