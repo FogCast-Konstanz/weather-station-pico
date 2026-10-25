@@ -23,9 +23,9 @@ def get_interval_s():
     return PHASES[ACTIVE_PHASE]
 
 
-# Standort der Wetterstation (fuer die Sonnenstand-Korrektur des AS7331)
-STATION_LAT_DEG = 47.69
-STATION_LON_DEG = 8.75
+# Standort der Wetterstation (F-Gebaeude)
+STATION_LAT_DEG = 47.667389
+STATION_LON_DEG = 9.17049
 MIN_SUN_ELEVATION_DEG = 5.0
 
 """
