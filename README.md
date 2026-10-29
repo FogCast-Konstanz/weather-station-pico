@@ -46,19 +46,20 @@ https://github.com/FogCast-Konstanz/weather-station-pico/tree/main/docs/3D-Druck
 
 ### Die Sensoren sind mit dem Raspberry Pi Pico 2 wie folgt verbunden:
 
-- **Sensor              Grove-Port   Pico-GPIO (SDA/SCL)              Bus-Typ**
-- SHT30 (intern)      I2C0         GP8  / GP9                       Hardware I2C(0)
-- QMP6988             I2C0         GP8  / GP9                       Hardware I2C(0)
-- SHT30 (extern)      I2C1         GP6  / GP7                       Hardware I2C(1)
-- MPU6886 (IMU)       A2           GP28 / <config.MPU6886_SCL_PIN>  SoftI2C
-- AS7331 (UV)         D20          GP20 / <config.AS7331_SCL_PIN>   SoftI2C
-
-Sensor	Grove-Port	Pico-GPIO (SDA / SCL)	Bus-Typ
-SHT30 (intern)	I2C0	GP8 / GP9	Hardware I2C(0)
-QMP6988	I2C0	GP8 / GP9	Hardware I2C(0)
-SHT30 (extern)	I2C1	GP6 / GP7	Hardware I2C(1)
-MPU6886 (IMU)	A2	GP28 / <config.MPU6886_SCL_PIN>	SoftI2C
-AS7331 (UV)	D20	GP20 / <config.AS7331_SCL_PIN>	SoftI2C
+| Sensor | Grove-Port | Pico-GPIO (SDA / SCL) | Bus-Typ |
+| :--- | :--- | :--- | :--- |
+| SHT30 (intern) | I2C0 | GP8 / GP9 | Hardware I2C(0) |
+| QMP6988 | I2C0 | GP8 / GP9 | Hardware I2C(0) |
+| SHT30 (extern) | I2C1 | GP6 / GP7 | Hardware I2C(1) |
+| MPU6886 (IMU) | A2 | GP28 / `<config.MPU6886_SCL_PIN>` | SoftI2C |
+| AS7331 (UV) | D20 | GP20 / `<config.AS7331_SCL_PIN>` | SoftI2C |
 
 Diese Verkabelung ist in 'main.py' im Code wiederzufinden, dementsprechend kann man dies im Code und physisch verändern, wenn man das möchte.
 
+### Datenübertragung
+
+Zusammen mit der zuständigen Abteilung der HTWG haben wir ein LAN-Kabel für die Datenübertragung vom F-Gebäude-Dach in den Raum **F-222** gelegt. Für den Zugang zu dem Raum ist Prof. Rebholz unsere Ansprechperson gewesen. Der Zugang wurde über den Anschluss **C 10 C2** für das HTWG-Netzwerk freigelegt, für eine problemlose Datenübertragung. Leider konnten wir diese Datenübertragung noch nicht testen. Hierfür war *Robert Breuer* ein guter Ansprechpartner und könnte für die Implementierung vermutlich eine große Hilfe sein. Die Netzwerk Config, die man beim Raspberry Pi dafür setzen muss lautet:
+**141.37.159.38/22**
+**141.37.156.254**
+
+Wenn man die Config einstellt und die Hardware dementsprechend ans Netzwerk anschließt sollte die Verbindung aufgebaut werden können. Diese Daten können dann abgerufen und in die Datenbank eingepflegt werden.
