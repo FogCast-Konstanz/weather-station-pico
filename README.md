@@ -42,16 +42,23 @@ https://github.com/FogCast-Konstanz/weather-station-pico/tree/main/docs/3D-Druck
    - Verkabelung: Das Relaismodul ist über ein 4-adriges Kabel (Signal, 5V, GND) mit einem Steckplatz des Pico-Shields verbunden.
    - Funktionsweise: Das Relais fungiert als elektronisch gesteuerter Schalter. Der Raspberry Pi Pico 2 kann über einen digitalen Ausgang ein Steuersignal an das Modul senden, um den Stromkreis auf der Lastseite (Schraubklemmen am Relais) zu schließen oder zu öffnen.
    - Sicherheit: Das Modul verfügt über eine integrierte Optokoppler-Isolierung, die den empfindlichen Mikrocontroller vor gefährlichen Spannungsspitzen und Rückströmen aus dem Laststromkreis schützt.
+   - Bei einer vollständigen Verbindung zwischen dem Raspberry Pi Pico 2 und dem Seeed Studio Grove 2-Kanal-Relaismodul kann diese an ein herkömmliches Stromnetz (230 V) angeschlossen werden. Dazu haben wir auf dem F-Gebäude Dach an der mittleren Plattform ein Stromkabel verlegt, der die Sensoranlage / Ceilometer damit bedienen soll.
 
 ### Die Sensoren sind mit dem Raspberry Pi Pico 2 wie folgt verbunden:
 
- Sensor              Grove-Port   Pico-GPIO (SDA/SCL)              Bus-Typ
-  ------------------  -----------  --------------------------       -------------------
-  SHT30 (intern)      I2C0         GP8  / GP9                       Hardware I2C(0)
-  QMP6988             I2C0         GP8  / GP9                       Hardware I2C(0)
-  SHT30 (extern)      I2C1         GP6  / GP7                       Hardware I2C(1)
-  MPU6886 (IMU)       A2           GP28 / <config.MPU6886_SCL_PIN>  SoftI2C
-  AS7331 (UV)         D20          GP20 / <config.AS7331_SCL_PIN>   SoftI2C
+- **Sensor              Grove-Port   Pico-GPIO (SDA/SCL)              Bus-Typ**
+- SHT30 (intern)      I2C0         GP8  / GP9                       Hardware I2C(0)
+- QMP6988             I2C0         GP8  / GP9                       Hardware I2C(0)
+- SHT30 (extern)      I2C1         GP6  / GP7                       Hardware I2C(1)
+- MPU6886 (IMU)       A2           GP28 / <config.MPU6886_SCL_PIN>  SoftI2C
+- AS7331 (UV)         D20          GP20 / <config.AS7331_SCL_PIN>   SoftI2C
+
+Sensor	Grove-Port	Pico-GPIO (SDA / SCL)	Bus-Typ
+SHT30 (intern)	I2C0	GP8 / GP9	Hardware I2C(0)
+QMP6988	I2C0	GP8 / GP9	Hardware I2C(0)
+SHT30 (extern)	I2C1	GP6 / GP7	Hardware I2C(1)
+MPU6886 (IMU)	A2	GP28 / <config.MPU6886_SCL_PIN>	SoftI2C
+AS7331 (UV)	D20	GP20 / <config.AS7331_SCL_PIN>	SoftI2C
 
 Diese Verkabelung ist in 'main.py' im Code wiederzufinden, dementsprechend kann man dies im Code und physisch verändern, wenn man das möchte.
 
