@@ -59,7 +59,7 @@ Diese Verkabelung ist in 'main.py' im Code wiederzufinden, dementsprechend kann 
 ### Datenübertragung
 
 Zusammen mit der zuständigen Abteilung der HTWG haben wir ein LAN-Kabel für die Datenübertragung vom F-Gebäude-Dach in den Raum **F-222** gelegt. Für den Zugang zu dem Raum ist Prof. Rebholz unsere Ansprechperson gewesen. Der Zugang wurde über den Anschluss **C 10 C2** für das HTWG-Netzwerk freigelegt, für eine problemlose Datenübertragung. Leider konnten wir diese Datenübertragung noch nicht testen. Hierfür war *Robert Breuer* ein guter Ansprechpartner und könnte für die Implementierung vermutlich eine große Hilfe sein. Die Netzwerk Config, die man beim Raspberry Pi dafür setzen muss lautet:
-**141.37.159.38/22**
-**141.37.156.254**
+- **141.37.159.38/22**
+- **141.37.156.254**
 
 Wenn man die Config einstellt und die Hardware dementsprechend ans Netzwerk anschließt sollte die Verbindung aufgebaut werden können. Diese Daten können dann abgerufen und in die Datenbank eingepflegt werden.
