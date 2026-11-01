@@ -63,3 +63,15 @@ Zusammen mit der zuständigen Abteilung der HTWG haben wir ein LAN-Kabel für di
 - **141.37.156.254**
 
 Wenn man die Config einstellt und die Hardware dementsprechend ans Netzwerk anschließt sollte die Verbindung aufgebaut werden können. Diese Daten können dann abgerufen und in die Datenbank eingepflegt werden.
+
+### 🔌 Ersatzlösung: Standalone-Anbindung via USB & InfluxDB
+
+Da aktuell kein Ceilometer zur Verfügung steht, kann die Pico-2-Wetterstation bis zur finalen Integration über eine lokale USB-Schnittstelle direkt an den Raspberry Pi einer bestehenden Wetterstation angebunden werden.
+
+Architektur der Ersatzlösung:
+
+```text
++-----------------------+     USB (Serial)     +-----------------------+                       +------------------+
+| Raspberry Pi Pico 2   | -------------------> | Raspberry Pi (Host)   | -- (Daemon Script) -> | InfluxDB         |
+| (Wetterstation Code)  |                      | /dev/ttyACM0          |                       | (Datenbank)      |
++-----------------------+                      +-----------------------+                       +------------------+
