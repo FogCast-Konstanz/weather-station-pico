@@ -66,12 +66,19 @@ Wenn man die Config einstellt und die Hardware dementsprechend ans Netzwerk ansc
 
 ### 🔌 Ersatzlösung: Standalone-Anbindung via USB & InfluxDB
 
-Da aktuell kein Ceilometer zur Verfügung steht, kann die Pico-2-Wetterstation bis zur finalen Integration über eine lokale USB-Schnittstelle direkt an den Raspberry Pi einer bestehenden Wetterstation angebunden werden.
+Da aktuell kein bzw. bedingt das Ceilometer zur Verfügung steht, kann die Pico-2-Wetterstation bis zur finalen Integration über eine lokale USB-Schnittstelle direkt an den Raspberry Pi einer bestehenden Wetterstation angebunden werden.
+
+1. Datenquelle (Pico 2): Die main.py auf dem Pico 2 gibt die gemessenen und korrigierten Sensordaten (UV-Index, Temperatur, Feuchte, Luftdruck, IMU) bei jeder Messrunde als JSON- bzw. Key-Value-String über die serielle USB-Schnittstelle (sys.stdout) aus.
+2. Datenempfänger (Raspberry Pi Host): Der Raspberry Pi der bestehenden Wetterstation ist per USB-Kabel mit dem Pico 2 verbunden.
+3. Bridge-Dienst: Ein kleiner Python-Background-Dienst (Daemon/Systemd-Service) auf dem Raspberry Pi liest den seriellen Port (/dev/ttyACM0) kontinuierlich aus und parst die eintreffenden Messwerte.
+4. Persistierung: Der Dienst schreibt die strukturierten Datensätze direkt in die lokale oder netzwerkbasierte InfluxDB-Instanz der Wetterstation.
 
 Architektur der Ersatzlösung:
 
 ```text
-+-----------------------+     USB (Serial)     +-----------------------+                       +------------------+
-| Raspberry Pi Pico 2   | -------------------> | Raspberry Pi (Host)   | -- (Daemon Script) -> | InfluxDB         |
++-----------------------+     USB (Serial)     +-----------------------+    (Daemon Script)    +------------------+
+| Raspberry Pi Pico 2   | -------------------> | Raspberry Pi (Host)   | --------------------> | InfluxDB         |
 | (Wetterstation Code)  |                      | /dev/ttyACM0          |                       | (Datenbank)      |
 +-----------------------+                      +-----------------------+                       +------------------+
+
+Schritt-für-Schritt Einrichtung auf dem Raspberry Pi Host findet man unter dem Ordner: **without_ceilometer**
