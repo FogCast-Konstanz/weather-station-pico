@@ -1,0 +1,14 @@
+[Unit]
+Description=Pico 2 Wetterstation zu InfluxDB Bridge
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/pico_to_influx.py
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
