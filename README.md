@@ -81,4 +81,6 @@ Architektur der Ersatzlösung:
 | (Wetterstation Code)  |                      | /dev/ttyACM0          |                       | (Datenbank)      |
 +-----------------------+                      +-----------------------+                       +------------------+
 
+
+
 Schritt-für-Schritt Einrichtung auf dem Raspberry Pi Host findet man unter dem Ordner: **without_ceilometer**
