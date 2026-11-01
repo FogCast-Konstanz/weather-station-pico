@@ -80,7 +80,6 @@ Architektur der Ersatzlösung:
 | Raspberry Pi Pico 2   | -------------------> | Raspberry Pi (Host)   | --------------------> | InfluxDB         |
 | (Wetterstation Code)  |                      | /dev/ttyACM0          |                       | (Datenbank)      |
 +-----------------------+                      +-----------------------+                       +------------------+
-
-
+´´´
 
 Schritt-für-Schritt Einrichtung auf dem Raspberry Pi Host findet man unter dem Ordner: **without_ceilometer**
