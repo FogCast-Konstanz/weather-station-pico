@@ -1,0 +1,3 @@
+sudo systemctl daemon-reload
+sudo systemctl enable pico-bridge.service
+sudo systemctl start pico-bridge.service
